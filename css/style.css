@@ -1,0 +1,48 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Lato', sans-serif;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	color: #2980b9;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	margin: auto;
+	max-width: 960px;
+	text-align: center;
+}
+
+.Order {
+	padding: 15px !important;
+	margin: 15px !important;
+	float: left;
+	text-align: left;
+}
+
+.Order .item {
+	color: #fff;
+	border-bottom: 1px solid rgb(82, 145, 186);
+	padding-bottom: 20px;
+}
+
+.Order .section {
+	background: #3498db;
+	border-radius: 3px;
+	padding: 5px;
+	float: right;
+	color: #fff;
+}
+
+.orderItem {
+	display: block;
+	height: 2rem;
+}
+
+.orderTime {
+	float: right;
+}

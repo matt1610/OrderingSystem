@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="en-US" ng-app="Casino">
+<head>
+	<meta charset="UTF-8">
+	<title>Node Boilerplate with Express &amp; Socket IO</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/semantic.css">
+
+	
+	 <!-- <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.css"> -->
+</head>
+<body ng-controller="MainCtrl">
+
+	<div class="container">
+
+		<!-- <div class="Order" ng-repeat="order in Orders track by $index">
+			<p class="item" ng-repeat="item in order track by $index">
+				{{item.name}} x {{item.amount}} <span class="section">{{item.price * item.amount}}</span>
+			</p>
+		</div> -->
+
+		<div class="ui icon input">
+		  <input type="text" ng-model="Search" placeholder="Search...">
+		</div>
+
+		<div class="ui divider"></div>
+
+		<div class="ui card Order" ng-repeat="order in Orders | filter: Search track by $index">
+		  <div class="content">
+		    <div class="header">Table Number : {{order.FloorNumber}}</div>
+
+		    <!-- <div class="meta">2 days ago</div> -->
+		    <div class="description">
+		      <p class="orderItem" ng-repeat="item in order.Cart track by $index">{{item.name}} x {{item.amount}} <span class="section">R{{item.price * item.amount | number:2}}</span></p>
+		    </div>
+		  </div>
+		  <div class="extra content bold">
+		      Total : R{{order.Cart.Total}} <span class="orderTime">{{order.Time | date : 'shortTime'}}</span>
+		  </div>
+
+		  <div class="ui vertical buttons">
+		  		
+		  		<div class="ui primary button" ng-hide="order.Success" ng-click="MessageToUser(order,'Your order has been received', 'Success')">
+				  Confirm
+				</div>
+
+				<div class="ui green button" ng-hide="order.OrderSent" ng-click="MessageToUser(order,'Your order is on its way', 'OrderSent')">On the way
+				</div>
+
+		  </div>
+
+			
+
+		</div>
+
+
+		<!-- <md-card ng-repeat="order in Orders | filter: Search track by $index">
+	      <md-card-content>
+	        <h2>{{order.FloorNumber}}</h2>
+	        <p class="orderItem" ng-repeat="item in order.Cart track by $index">{{item.name}} x {{item.amount}} <span class="section">R{{item.price * item.amount}}</span></p>
+	        <div class="extra content bold">
+		      Total : R{{order.Cart.Total}}
+		  </div>
+	      </md-card-content>
+	    </md-card> -->
+
+	</div>
+
+	<!-- <h1>{{Users}}</h1> -->
+
+	
+
+	<script src="/socket.io/socket.io.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.6.1/angular-material.min.js"></script>
+
+	<script type="text/javascript" src="js/kiosk.js"></script>
+</body>
+</html>

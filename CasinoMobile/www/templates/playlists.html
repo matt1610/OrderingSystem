@@ -1,0 +1,28 @@
+<ion-view view-title="Socket IO App Test">
+  <ion-content>
+    
+	<div class="list list-inset">
+	  <label class="item item-input">
+	    <input type="text" placeholder="Floor Number" ng-model="Data.FloorNumber">
+	  </label>
+	</div>
+
+    <div class="list list-inset">
+
+	 	<button class="button button-block button-positive" ng-click="SendMessage()">
+		  Send Order
+		</button>
+
+	</div>
+
+	<!-- {{Data.Cart}} -->
+
+	<ul class="list">
+	    <li class="item" ng-repeat="item in Menu" ng-click="AddToCart(item)">
+	      {{item.name}} | R{{item.price}} | <span class="Amount" ng-hide="CheckAmount(item)">{{item.amount}}</span>
+	    </li>
+	</ul>
+
+
+  </ion-content>
+</ion-view>
